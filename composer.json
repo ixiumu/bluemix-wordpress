@@ -1,5 +1,5 @@
 {
-    "repositories": [ // 自定义包
+    "repositories": [ /* 自定义包 */
         {
           "type": "package",
           "package": {
@@ -25,7 +25,7 @@
         }
     ],
     
-    "scripts": { // 需要执行的脚本
+    "scripts": { /* 需要执行的脚本 */
         "pre-install-cmd" : [
             "curl https://api.github.com/rate_limit"
         ],
@@ -37,7 +37,7 @@
         
     },
 
-    "require": { // 依赖包
+    "require": { /* 依赖包 */
         "ext-gd"                                      : "*",
         "phpmyadmin/phpmyadmin"                       : "*",
         "johnpbloch/wordpress"                        : "*",
@@ -48,7 +48,7 @@
         "wpackagist-theme/twentysixteen"              : "*"
     },
 
-    "extra": { // wordpress的安装目录
+    "extra": { /* wordpress的安装目录 */
       "wordpress-install-dir": "htdocs",
       "installer-paths": {
         "htdocs/wp-content/plugins/{$name}/" : ["type:wordpress-plugin"],
