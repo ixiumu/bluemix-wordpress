@@ -1,0 +1,59 @@
+{
+    "repositories": [ // 自定义包
+        {
+          "type": "package",
+          "package": {
+            "name": "johnpbloch/wordpress",
+            "version": "4.7.1",
+            "type": "wordpress-core",
+            "dist": {
+              "type": "zip",
+              "url": "https://cn.wordpress.org/wordpress-4.7.1-zh_CN.zip"
+            },
+            "require" : {
+              "johnpbloch/wordpress-core-installer": "~0.2"
+            }
+          }
+        },
+        {
+          "type": "composer",
+          "url": "https://www.phpmyadmin.net"
+        },
+        {
+          "type": "composer",
+          "url": "https://wpackagist.org"
+        }
+    ],
+    
+    "scripts": { // 需要执行的脚本
+        "pre-install-cmd" : [
+            "curl https://api.github.com/rate_limit"
+        ],
+        "post-install-cmd" : [
+            "mv vendor/phpmyadmin/phpmyadmin htdocs/phpMyAdmin",
+            "mv ./vendor ./htdocs/vendor",
+            "cp -r ./lib/* ./htdocs && rm -R ./lib/*"
+        ]
+        
+    },
+
+    "require": { // 依赖包
+        "ext-gd"                                      : "*",
+        "phpmyadmin/phpmyadmin"                       : "*",
+        "johnpbloch/wordpress"                        : "*",
+        "wpackagist-plugin/disable-wordpress-updates" : "*",
+        "wpackagist-plugin/no-category-base-wpml"     : "*",
+        "wpackagist-plugin/wp-syntax"                 : "*",
+        "wpackagist-plugin/wp-super-cache"            : "*",
+        "wpackagist-theme/twentysixteen"              : "*"
+    },
+
+    "extra": { // wordpress的安装目录
+      "wordpress-install-dir": "htdocs",
+      "installer-paths": {
+        "htdocs/wp-content/plugins/{$name}/" : ["type:wordpress-plugin"],
+        "htdocs/wp-content/themes/{$name}/"  : ["type:wordpress-theme"]
+      }
+    },
+    "prefer-stable": true
+}

@@ -1,0 +1,7 @@
+applications:
+- name: yourappname #你的应用名
+  memory: 256M #内存大小
+  instances: 1 #要启动的实例数量
+  buildpack: https://github.com/cloudfoundry/php-buildpack#v4.3.7
+  services:
+  - mysql #绑定的服务

@@ -1,0 +1,1 @@
+http://www.xiumu.org/technology/wordpress-on-bluemix-deployment.shtml
